@@ -50,15 +50,15 @@ public abstract class Bag {
      */
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public int getNumberOfContents() {
-        return numberOfContents;
+        return this.numberOfContents;
     }
 
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     /*
@@ -80,14 +80,14 @@ public abstract class Bag {
      *       and false otherwise.
      */
     public boolean addItem(String item){
-        if (numberOfContents < capacity){
+        if (this.numberOfContents < this.capacity){
 //            newContents = new String[this.capacity];
 //            for(int i = 0; i <= this.numberOfContents; i++) {
 //                newArr[i] = arr[i];
 //            }
 //            newArr[]
-            contents[numberOfContents] = item;
-            numberOfContents += 1;
+            this.contents[this.numberOfContents] = item;
+            this.numberOfContents += 1;
             return true;
         } else {
             return false;
@@ -107,12 +107,12 @@ public abstract class Bag {
      * @return
      */
     public String popItem(){
-        if (numberOfContents > 0) {
-            String lastItem = contents[getNumberOfContents() - 1];
-            String[] newContents = new String[capacity];
-            System.arraycopy(contents, 0, newContents, 0, this.numberOfContents - 1);
-            contents = newContents;
-            numberOfContents -= 1;
+        if (this.numberOfContents > 0) {
+            String lastItem = this.contents[getNumberOfContents() - 1];
+            String[] newContents = new String[this.capacity];
+            System.arraycopy(this.contents, 0, newContents, 0, this.numberOfContents - 1);
+            this.contents = newContents;
+            this.numberOfContents -= 1;
             return lastItem;
         } else {
             return null;
@@ -130,10 +130,10 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-        capacity += n;
-        String[] newContents = new String[capacity];
-        System.arraycopy(contents, 0, newContents, 0, this.numberOfContents);
-        contents = newContents;
+        this.capacity += n;
+        String[] newContents = new String[this.capacity];
+        System.arraycopy(this.contents, 0, newContents, 0, this.numberOfContents);
+        this.contents = newContents;
     }
 
     /**
